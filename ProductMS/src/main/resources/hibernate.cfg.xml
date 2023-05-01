@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Kullanılacak Veritabanı Sürücüsünün Adı       -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <!--  ConnectionString       -->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/products_DB</property>
+        <!--  Kullanıcı Adı , yetkili kullanıcı      -->
+        <property name="hibernate.connection.username">postgres</property>
+        <!--  Şifre      -->
+        <property name="hibernate.connection.password">12330125689Aa.</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL10Dialect</property>
+        <!--  update -> Entity lerinize bakar eğer bunlara karşılık gelen tablolar DB de var ise
+                        olduğu gibi bırakır. Eğer tablolar yok ise varlıklara ait tabloları oluşturur.
+              create -> Entity lerinize ait tüm tabloları, uygulama her başladığında tekrar tekrar oluşturur.
+                        DİKKAT!! bir uygulamada create kullanılır ise veritabanında olan veriler tamamen silinir.
+              create/drop -> Her seferinde tabolar oluşturulur, uygulama kapatılırken tüm tablolar silinir.
+         -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
+
+        <mapping class="com.ayseozcan.entity.Admin"></mapping>
+        <mapping class="com.ayseozcan.entity.Category"></mapping>
+        <mapping class="com.ayseozcan.entity.Customer"></mapping>
+        <mapping class="com.ayseozcan.entity.Product"></mapping>
+        <mapping class="com.ayseozcan.entity.ProductDetail"></mapping>
+
+    </session-factory>
+</hibernate-configuration>
